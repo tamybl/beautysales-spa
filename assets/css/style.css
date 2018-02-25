@@ -3,14 +3,3 @@ body {
   background-repeat: repeat;
 
 }
-
-.main-content {
-   background-color: #fff;
-   padding: 1em;
-}
-
-.product-title, .product-title a {
-  font-size: 1.2em;
-  color: #ee6e73;
-}
-
