@@ -52,5 +52,32 @@ $(function () {
   }
 
     
+  $('.btn').click(showByType);
 
-}); 
+});
+
+
+function showByType() {
+    var typeSelected = $(this);
+    var typeName = typeSelected.attr('id');
+    console.log(typeName);
+
+    $.ajax({
+        url: `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=${typeName}`,
+        type: 'GET',
+        datatype: 'json'
+    })
+    .done(function(response) {
+        // si el llamado fue exitoso, llama a showProductsByType
+        console.log(response);
+        showProductsByType();
+    })
+    .fail(function(error) {
+        // si el llamado falla, lanza un console.log
+        console.log('error');
+    })
+}
+
+function showProductsByType(typeOfProducts) {
+    console.log('Entrando a los tipos de productos');
+}
