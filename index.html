@@ -8,34 +8,101 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <header>
-    <ul class="categories">
-    <!-- Categories Here -->
+  <header class="container">
+    <ul class="personal-info">
+      <li>Account</li>
+      <li>Cart (0)</li>
     </ul>
+    <div class="slider">
+      <ul class="slides">
+      <li>
+        <img src="https://lorempixel.com/580/250/nature/1"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="https://lorempixel.com/580/250/nature/2"> <!-- random image -->
+        <div class="caption left-align">
+          <h3>Left Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="https://lorempixel.com/580/250/nature/3"> <!-- random image -->
+        <div class="caption right-align">
+          <h3>Right Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="https://lorempixel.com/580/250/nature/4"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+    </ul>
+    </div>
+    <ul class="categories row">
+    <!-- Categories Here -->
+      <li><a class="waves-effect waves-light btn col s2">Blush</a></li>
+      <li><a class="waves-effect waves-light btn col s2">Bronzer</a></li>
+      <li><a class="waves-effect waves-light btn col s2">Eyebrow</a></li>
+      <li><a class="waves-effect waves-light btn col s2">Eyeliner</a></li>
+      <li><a class="waves-effect waves-light btn col s2">Eyeshadow</a></li>
+      <li><a class="waves-effect waves-light btn col s2">Foundation</a></li>
+      <li><a class="waves-effect waves-light btn col s2">Lip liner</a></li>
+      <li><a class="waves-effect waves-light btn col s2">Lipstick</a></li>
+      <li><a class="waves-effect waves-light btn col s2">Mascara</a></li>
+      <li><a class="waves-effect waves-light btn ol s2">Nail polish</a></li>
+
+    </ul>
+  <div class="divider"></div>
   </header>
-  <main class="main-content">
+  
+  <main class="main-content container">
     <div class="all-products page">
-      <h3>Nuestros Productos</h3>
-        <ul class="products-list">
+      <h3>Our Products</h3>
+        <ul class="products-list row">
         <script id="products-template" type="x-handlebars-template">​
-        {{#each this}}
-          <li data-index="{{id}}">
-            <a href="#" class="product-photo">
-              <img src="{{image.small}}" height="130" alt="{{name}}"/></a>
-              <h2><a href="#"> {{name}} </a></h2>
+          {{#each this}}
+          <li data-index="{{id}}" class="col s4">
+            <a href="#" class="product-photo"><img src="{{image_link}}" height="200" alt="{{name}}"/></a>
+            <h2 class="product-title"><a href="#"> {{name}} </a></h2>
             <ul class="product-description">
-              <li><span>Manufacturer: </span>{{specs.manufacturer}}</li>
-              <li><span>Storage: </span>{{specs.storage}} GB</li>
-              <li><span>OS: </span>{{specs.os}}</li>
-              <li><span>Camera: </span>{{specs.camera}} Mpx</li>
+              <li><span>Brand: </span>{{brand}}</li>
+              <li><span>Category: </span>{{category}}</li>
+              <li><span>Product link: </span>{{product_link}}</li>
+              <li><span>Website: </span> {{website_link}}</li>
+
             </ul>
             <button>Buy Now!</button>
-            <p class="product-price">{{price}}$</p>
+            <p class="product-price">{{price}} {{price_sign}}</p>
             <div class="highlight"></div>
           </li>
         {{/each}}
       </script> 
       </ul>
+    </div>
+    <!-- Single Details -->
+    <div class="single-product page">
+
+        <div class="overlay"></div>
+
+        <div class="preview-large">
+            <h3>Single product view</h3>
+            <img src=""/>
+            <p></p>
+
+            <span class="close">&times;</span>
+        </div>
+
+    </div>
+    <!-- Error Page -->
+    <div class="error page">
+        <h3>Sorry, something went wrong :(</h3>
     </div>
   </main>
 
