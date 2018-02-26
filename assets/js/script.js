@@ -15,6 +15,7 @@ $(function () {
         
         console.log(data);
         generateAllProductsHTML(data);
+        generateAllCategoriesHTML(data);
         // Manually trigger a hashchange to start the app.
         $(window).trigger('hashchange');
     });
@@ -32,9 +33,9 @@ $(function () {
 
     function generateAllProductsHTML(data){
 
-    var list = $('.all-products .products-list');
+    let list = $('.all-products .products-list');
 
-    var theTemplateScript = $("#products-template").html();
+    let theTemplateScript = $("#products-template").html();
     //Compile the template​
     var theTemplate = Handlebars.compile (theTemplateScript);
     list.append (theTemplate(data));
@@ -52,5 +53,44 @@ $(function () {
   }
 
     
+  $('.btn').click(showByType);
 
-}); 
+});
+
+
+function showByType() {
+    var typeSelected = $(this);
+    var typeName = typeSelected.attr('id');
+    console.log(typeName);
+
+    $.ajax({
+        url: `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=${typeName}`,
+        type: 'GET',
+        datatype: 'json'
+    })
+    .done(function(response) {
+        // si el llamado fue exitoso, llama a showProductsByType
+        console.log(response);
+        showProductsByType();
+    })
+    .fail(function(error) {
+        // si el llamado falla, lanza un console.log
+        console.log('error');
+    })
+}
+
+function showProductsByType(typeOfProducts) {
+    console.log('Entrando a los tipos de productos');
+}
+
+function generateAllCategoriesHTML(data) {
+    let uniqueCat = Array.from(new Set(data["category"]))
+    console.log(uniqueCat);
+
+    /*let list = $('.categories');
+
+    let theTemplateScript = $("#pcategories-template").html();
+    //Compile the template​
+    var theTemplate = Handlebars.compile (theTemplateScript);
+    list.append (theTemplate(unique_cat));*/
+}

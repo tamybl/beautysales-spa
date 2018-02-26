@@ -45,18 +45,24 @@
       </li>
     </ul>
     </div>
-    <ul class="categories row">
+    <ul class="categories row page">
+      <script id="categories-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <li><a class="waves-effect waves-light btn col s2" id="{{name}}">{{name}}</a></li>
+          {{/each}}
+      </script>
+      <li>
     <!-- Categories Here -->
-      <li><a class="waves-effect waves-light btn col s2">Blush</a></li>
-      <li><a class="waves-effect waves-light btn col s2">Bronzer</a></li>
-      <li><a class="waves-effect waves-light btn col s2">Eyebrow</a></li>
-      <li><a class="waves-effect waves-light btn col s2">Eyeliner</a></li>
-      <li><a class="waves-effect waves-light btn col s2">Eyeshadow</a></li>
-      <li><a class="waves-effect waves-light btn col s2">Foundation</a></li>
-      <li><a class="waves-effect waves-light btn col s2">Lip liner</a></li>
-      <li><a class="waves-effect waves-light btn col s2">Lipstick</a></li>
-      <li><a class="waves-effect waves-light btn col s2">Mascara</a></li>
-      <li><a class="waves-effect waves-light btn ol s2">Nail polish</a></li>
+      <li><a class="waves-effect waves-light btn col s2" id="blush">Blush</a></li>
+      <li><a class="waves-effect waves-light btn col s2" id="bronzer">Bronzer</a></li>
+      <li><a class="waves-effect waves-light btn col s2" id="eyebrow">Eyebrow</a></li>
+      <li><a class="waves-effect waves-light btn col s2" id="eyeliner">Eyeliner</a></li>
+      <li><a class="waves-effect waves-light btn col s2" id="eyeshadow">Eyeshadow</a></li>
+      <li><a class="waves-effect waves-light btn col s2" id="foundation">Foundation</a></li>
+      <li><a class="waves-effect waves-light btn col s2" id="lip_liner">Lip liner</a></li>
+      <li><a class="waves-effect waves-light btn col s2" id="lipstick">Lipstick</a></li>
+      <li><a class="waves-effect waves-light btn col s2" id="mascara">Mascara</a></li>
+      <li><a class="waves-effect waves-light btn col s2" id="nail_polish">Nail polish</a></li>
 
     </ul>
   <div class="divider"></div>
@@ -83,7 +89,7 @@
             <div class="highlight"></div>
           </li>
         {{/each}}
-      </script> 
+      </script>
       </ul>
     </div>
     <!-- Single Details -->
