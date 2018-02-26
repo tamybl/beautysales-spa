@@ -36,9 +36,9 @@ $(function() {
   }
 
   function generateAllProductsHTML(data) {
-    let list = $('.all-products .products-list');
+    const list = $('.all-products .products-list');
 
-    let theTemplateScript = $('#products-template').html();
+    const theTemplateScript = $('#products-template').html();
     // Compile the template​
     var theTemplate = Handlebars.compile(theTemplateScript);
     const limit = 20;
@@ -46,7 +46,7 @@ $(function() {
     for (let i = 0; i <= 20; i++) {
       resultsPerPage.push(data[i]);
     }
-    console.log(resultsPerPage);|
+    console.log(resultsPerPage);
     list.append(theTemplate(resultsPerPage));
 
 
@@ -63,7 +63,7 @@ $(function() {
   }
 
 
-  $('.btn').click(showByType);
+  $('.tab a').click(showByType);
 });
 
 function showByType() {
@@ -85,4 +85,15 @@ function showByType() {
       // si el llamado falla, lanza un console.log
       console.log('error');
     });
+}
+
+function printProducts(response) {
+  console.log('Imprimiendo en html');
+  list = $('.all-products');
+  list.empty();
+  theTemplateScript = $('#productsbytype-template').html();
+
+  let productsByTypeTemplateScript = $('#productsbytype-template').html();
+  var productByTypeTemplate = Handlebars.compile(productsByTypeTemplateScript);
+  list.append(productByTypeTemplate(response));
 }
