@@ -1,4 +1,9 @@
-$(function () {
+$(document).ready(function() {
+    $('.slider').slider();
+});
+
+
+$(function() {
 
     /*checkboxes.click(function () {
         // The checkboxes in our app serve the purpose of filters.
@@ -8,11 +13,11 @@ $(function () {
         createQueryHash(filters);
     }); */
 
-    $.getJSON( "https://raw.githubusercontent.com/tamybl/beautysales-spa/master/products.json", function( data ) {
+    $.getJSON("https://raw.githubusercontent.com/tamybl/beautysales-spa/master/products.json", function(data) {
         // Get data about our products from products.json.
 
         // Call a function that will turn that data into HTML.
-        
+
         console.log(data);
         generateAllProductsHTML(data);
         generateAllCategoriesHTML(data);
@@ -20,7 +25,7 @@ $(function () {
         $(window).trigger('hashchange');
     });
 
-    $(window).on('hashchange', function(){
+    $(window).on('hashchange', function() {
         // On every hash change the render function is called with the new hash.
         // This is how the navigation of our app happens.
         render(decodeURI(window.location.hash));
@@ -31,29 +36,29 @@ $(function () {
         // depending on the current url hash value.
     }
 
-    function generateAllProductsHTML(data){
+    function generateAllProductsHTML(data) {
 
-    let list = $('.all-products .products-list');
+        let list = $('.all-products .products-list');
 
-    let theTemplateScript = $("#products-template").html();
-    //Compile the template​
-    var theTemplate = Handlebars.compile (theTemplateScript);
-    list.append (theTemplate(data));
+        let theTemplateScript = $("#products-template").html();
+        //Compile the template​
+        var theTemplate = Handlebars.compile(theTemplateScript);
+        list.append(theTemplate(data));
 
-    // Each products has a data-index attribute.
-    // On click change the url hash to open up a preview for this product only.
-    // Remember: every hashchange triggers the render function.
-    list.find('li').on('click', function (e) {
-      e.preventDefault();
+        // Each products has a data-index attribute.
+        // On click change the url hash to open up a preview for this product only.
+        // Remember: every hashchange triggers the render function.
+        list.find('li').on('click', function(e) {
+            e.preventDefault();
 
-      var productIndex = $(this).data('index');
+            var productIndex = $(this).data('index');
 
-      window.location.hash = 'product/' + productIndex;
-    })
-  }
+            window.location.hash = 'product/' + productIndex;
+        })
+    }
 
-    
-  $('.btn').click(showByType);
+
+    $('.btn').click(showByType);
 
 });
 
@@ -64,19 +69,19 @@ function showByType() {
     console.log(typeName);
 
     $.ajax({
-        url: `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=${typeName}`,
-        type: 'GET',
-        datatype: 'json'
-    })
-    .done(function(response) {
-        // si el llamado fue exitoso, llama a showProductsByType
-        console.log(response);
-        showProductsByType();
-    })
-    .fail(function(error) {
-        // si el llamado falla, lanza un console.log
-        console.log('error');
-    })
+            url: `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=${typeName}`,
+            type: 'GET',
+            datatype: 'json'
+        })
+        .done(function(response) {
+            // si el llamado fue exitoso, llama a showProductsByType
+            console.log(response);
+            showProductsByType();
+        })
+        .fail(function(error) {
+            // si el llamado falla, lanza un console.log
+            console.log('error');
+        })
 }
 
 function showProductsByType(typeOfProducts) {

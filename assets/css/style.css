@@ -1,3 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  background-color: black;
+}
+
 body {
   background-image: url(../images/bg_makeup50.png);
   background-repeat: repeat;
@@ -6,7 +16,7 @@ body {
 
 .main-content {
    background-color: #fff;
-   padding: 1em;
+   padding: 3em;
 }
 
 .product-title, .product-title a {
@@ -14,3 +24,30 @@ body {
   color: #ee6e73;
 }
 
+.logo {
+  width: 50%;
+}
+
+.slider {
+  font-family: 'Amatic SC', cursive;
+}
+
+.slider h3 {
+  color: black;
+  background-color: #FADEC8;
+  border-radius: 5px;
+  display: inline;
+  padding: 5px;
+}
+
+.tabs {
+  background-color: black;
+}
+
+.main-content {
+  background-color: transparent;
+}
+
+.item-container h2 {
+  text-align: center;  
+}

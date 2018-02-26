@@ -5,77 +5,72 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <title>Beauty Sales</title>
   <link rel="stylesheet" href="assets/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <header class="container">
-    <ul class="personal-info">
-      <li>Account</li>
-      <li>Cart (0)</li>
-    </ul>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo center"><img class="logo" src="assets/images/logosolo.png" alt=""></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href=""><i class="fas fa-shopping-cart"></i> Cart(0)</a></li>
+        <li><a href=""><i class="fas fa-user"></i> My Account</a></li>
+      </ul>
+    </div>
+  </nav>
     <div class="slider">
       <ul class="slides">
-      <li>
-        <img src="https://lorempixel.com/580/250/nature/1"> <!-- random image -->
-        <div class="caption center-align">
-          <h3>This is our big Tagline!</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-        </div>
-      </li>
-      <li>
-        <img src="https://lorempixel.com/580/250/nature/2"> <!-- random image -->
-        <div class="caption left-align">
-          <h3>Left Aligned Caption</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-        </div>
-      </li>
-      <li>
-        <img src="https://lorempixel.com/580/250/nature/3"> <!-- random image -->
-        <div class="caption right-align">
-          <h3>Right Aligned Caption</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-        </div>
-      </li>
-      <li>
-        <img src="https://lorempixel.com/580/250/nature/4"> <!-- random image -->
-        <div class="caption center-align">
-          <h3>This is our big Tagline!</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-        </div>
-      </li>
-    </ul>
+        <li>
+          <img src="assets/images/slider/cruelty-free-makeup.jpg"> <!-- random image -->
+          <div class="caption center-align">
+            <h3>This is our big Tagline!</h3>
+            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+          </div>
+        </li>
+        <li>
+          <img src="assets/images/slider/women-love-makeup.jpg"> <!-- random image -->
+          <div class="caption left-align">
+            <h3>Left Aligned Caption</h3>
+            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+          </div>
+        </li>
+        <li>
+          <img src="assets/images/slider/women-natural-make-up.jpg"> <!-- random image -->
+          <div class="caption right-align">
+            <h3>Right Aligned Caption</h3>
+            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+          </div>
+        </li>
+      </ul>
     </div>
-    <ul class="categories row page">
-      <script id="categories-template" type="text/x-handlebars-template">
+    <div class="nav-content">
+      <ul class="tabs categories page">
+        <script id="categories-template" type="text/x-handlebars-template">
         {{#each this}}
-        <li><a class="waves-effect waves-light btn col s2" id="{{name}}">{{name}}</a></li>
+        <li class="tab"><a class="waves-effect waves-light btn col s2" id="{{name}}">{{name}}</a></li>
           {{/each}}
       </script>
-      <li>
     <!-- Categories Here -->
-      <li><a class="waves-effect waves-light btn col s2" id="blush">Blush</a></li>
-      <li><a class="waves-effect waves-light btn col s2" id="bronzer">Bronzer</a></li>
-      <li><a class="waves-effect waves-light btn col s2" id="eyebrow">Eyebrow</a></li>
-      <li><a class="waves-effect waves-light btn col s2" id="eyeliner">Eyeliner</a></li>
-      <li><a class="waves-effect waves-light btn col s2" id="eyeshadow">Eyeshadow</a></li>
-      <li><a class="waves-effect waves-light btn col s2" id="foundation">Foundation</a></li>
-      <li><a class="waves-effect waves-light btn col s2" id="lip_liner">Lip liner</a></li>
-      <li><a class="waves-effect waves-light btn col s2" id="lipstick">Lipstick</a></li>
-      <li><a class="waves-effect waves-light btn col s2" id="mascara">Mascara</a></li>
-      <li><a class="waves-effect waves-light btn col s2" id="nail_polish">Nail polish</a></li>
-
-    </ul>
-  <div class="divider"></div>
-  </header>
-  
-  <main class="main-content container">
+      <li class="tab"><a id="blush">Blush</a></li>
+      <li class="tab"><a id="bronzer">Bronzer</a></li>
+      <li class="tab"><a id="eyebrow">Eyebrow</a></li>
+      <li class="tab"><a id="eyeliner">Eyeliner</a></li>
+      <li class="tab"><a id="eyeshadow">Eyeshadow</a></li>
+      <li class="tab"><a id="foundation">Foundation</a></li>
+      <li class="tab"><a id="lip_liner">Lip liner</a></li>
+      <li class="tab"><a id="lipstick">Lipstick</a></li>
+      <li class="tab"><a id="mascara">Mascara</a></li>
+      <li class="tab"><a id="nail_polish">Nail polish</a></li>
+      </ul>
+    </div>
+  <main class="main-content">
     <div class="all-products page">
-      <h3>Our Products</h3>
+      <h3 class="center-align">Our Products</h3>
         <ul class="products-list row">
         <script id="products-template" type="x-handlebars-template">​
           {{#each this}}
-          <li data-index="{{id}}" class="col s4">
-            <a href="#" class="product-photo"><img src="{{image_link}}" height="200" alt="{{name}}"/></a>
+          <li data-index="{{id}}" class="col s4 item-container">
+            <a href="#" class="product-photo"><img src="{{image_link}}" height="200" class="responsive-img" alt="{{name}}"/></a>
             <h2 class="product-title"><a href="#"> {{name}} </a></h2>
             <ul class="product-description">
               <li><span>Brand: </span>{{brand}}</li>
@@ -84,7 +79,9 @@
               <li><span>Website: </span> {{website_link}}</li>
 
             </ul>
-            <button>Buy Now!</button>
+            <div class="col s12 center-align">
+              <button>Buy Now!</button>
+            </div>
             <p class="product-price">{{price}} {{price_sign}}</p>
             <div class="highlight"></div>
           </li>
@@ -117,6 +114,7 @@
   <script src="assets/js/jquery-3.3.1.min.js"></script>
   <script src="assets/js/handlebars-v4.0.11.js"></script>
   <script src="assets/js/materialize.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
   <script src="assets/js/script.js"></script>
   
 </body>
