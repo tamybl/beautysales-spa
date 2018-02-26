@@ -49,7 +49,6 @@ $(function() {
     console.log(resultsPerPage);
     list.append(theTemplate(resultsPerPage));
 
-
     // Each products has a data-index attribute.
     // On click change the url hash to open up a preview for this product only.
     // Remember: every hashchange triggers the render function.
@@ -101,3 +100,10 @@ function printProducts(response) {
 function pagination () {
   
 }
+
+var cart = $('.cart');
+var buy = $('.buy');
+
+$(cart).click(function(){
+  
+})
