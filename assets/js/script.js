@@ -1,23 +1,20 @@
-$.getJSON('products.json', function (data) {
-  console.log(data);
-});
+$(function () {
 
-/*$(function () {
-
-    checkboxes.click(function () {
+    /*checkboxes.click(function () {
         // The checkboxes in our app serve the purpose of filters.
         // Here on every click we add or remove filtering criteria from a filters object.
 
         // Then we call this function which writes the filtering criteria in the url hash.
         createQueryHash(filters);
-    });
+    }); */
 
-    $.getJSON( "products.json", function( data ) {
+    $.getJSON( "https://raw.githubusercontent.com/tamybl/beautysales-spa/master/products.json", function( data ) {
         // Get data about our products from products.json.
 
         // Call a function that will turn that data into HTML.
-        generateAllProductsHTML(data);
+        
         console.log(data);
+        generateAllProductsHTML(data);
         // Manually trigger a hashchange to start the app.
         $(window).trigger('hashchange');
     });
@@ -34,30 +31,26 @@ $.getJSON('products.json', function (data) {
     }
 
     function generateAllProductsHTML(data){
-        // Uses Handlebars to create a list of products using the provided data.
-        // This function is called only once on page load.
-    }
 
-    function renderProductsPage(data){
-        // Hides and shows products in the All Products Page depending on the data it recieves.
-    }
+    var list = $('.all-products .products-list');
 
-    function renderSingleProductPage(index, data){
-        // Shows the Single Product Page with appropriate data.
-    }
+    var theTemplateScript = $("#products-template").html();
+    //Compile the template​
+    var theTemplate = Handlebars.compile (theTemplateScript);
+    list.append (theTemplate(data));
 
-    function renderFilterResults(filters, products){
-        // Crates an object with filtered products and passes it to renderProductsPage.
-        renderProductsPage(results);
-    }
+    // Each products has a data-index attribute.
+    // On click change the url hash to open up a preview for this product only.
+    // Remember: every hashchange triggers the render function.
+    list.find('li').on('click', function (e) {
+      e.preventDefault();
 
-    function renderErrorPage(){
-        // Shows the error page.
-    }
+      var productIndex = $(this).data('index');
 
-    function createQueryHash(filters){
-        // Get the filters object, turn it into a string and write it into the hash.
-    }
+      window.location.hash = 'product/' + productIndex;
+    })
+  }
 
-}); */
+    
 
+}); 
