@@ -97,3 +97,7 @@ function printProducts(response) {
   var productByTypeTemplate = Handlebars.compile(productsByTypeTemplateScript);
   list.append(productByTypeTemplate(response));
 }
+
+function pagination () {
+  
+}
