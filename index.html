@@ -16,7 +16,13 @@
     <div class="slider">
       
     </div>
-    <ul class="categories row">
+    <ul class="categories row page">
+      <script id="categories-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <li><a class="waves-effect waves-light btn col s2" id="{{name}}">{{name}}</a></li>
+          {{/each}}
+      </script>
+      <li>
     <!-- Categories Here -->
       <li><a class="waves-effect waves-light btn col s2" id="blush">Blush</a></li>
       <li><a class="waves-effect waves-light btn col s2" id="bronzer">Bronzer</a></li>
