@@ -13,9 +13,9 @@ $(function () {
 
         // Call a function that will turn that data into HTML.
         
-        console.log(data);
+       //console.log(data);
         generateAllProductsHTML(data);
-        generateAllCategoriesHTML(data);
+        //generateAllCategoriesHTML(data);
         // Manually trigger a hashchange to start the app.
         $(window).trigger('hashchange');
     });
@@ -38,7 +38,13 @@ $(function () {
     let theTemplateScript = $("#products-template").html();
     //Compile the template​
     var theTemplate = Handlebars.compile (theTemplateScript);
-    list.append (theTemplate(data));
+    const limit = 20;
+    let resultsPerPage = []
+    for (let i = 0; i <= 20; i++) {
+        resultsPerPage.push(data[i]);
+    }
+    console.log(resultsPerPage);
+    list.append (theTemplate(resultsPerPage));
 
     // Each products has a data-index attribute.
     // On click change the url hash to open up a preview for this product only.
@@ -83,7 +89,7 @@ function showProductsByType(typeOfProducts) {
     console.log('Entrando a los tipos de productos');
 }
 
-function generateAllCategoriesHTML(data) {
+/*function generateAllCategoriesHTML(data) {
     let uniqueCat = Array.from(new Set(data))
     console.log(uniqueCat);
 
@@ -93,4 +99,4 @@ function generateAllCategoriesHTML(data) {
     //Compile the template​
     var theTemplate = Handlebars.compile (theTemplateScript);
     list.append (theTemplate(data));
-}
+}*/
