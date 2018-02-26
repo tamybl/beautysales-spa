@@ -84,13 +84,13 @@ function showProductsByType(typeOfProducts) {
 }
 
 function generateAllCategoriesHTML(data) {
-    let uniqueCat = Array.from(new Set(data["category"]))
+    let uniqueCat = Array.from(new Set(data))
     console.log(uniqueCat);
 
-    /*let list = $('.categories');
+    let list = $('.categories');
 
-    let theTemplateScript = $("#pcategories-template").html();
+    let theTemplateScript = $("#categories-template").html();
     //Compile the template​
     var theTemplate = Handlebars.compile (theTemplateScript);
-    list.append (theTemplate(unique_cat));*/
+    list.append (theTemplate(data));
 }
