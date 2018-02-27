@@ -100,8 +100,46 @@
         <script id="products-template" type="x-handlebars-template">
           {{#each this}}
           <li data-index="{{id}}" class="col s12 m4 item-container">
-          <a href="#" class="product-photo center-align"><img src="{{image_link}}" class="responsive-img" alt="{{name}}"/></a>
-          <h2 class="product-title"><a href="{{product_link}}"> {{name}} </a></h2>
+            <a href="#" class="product-photo center-align"><img src="{{image_link}}" class="responsive-img" alt="{{name}}"/></a>
+            <h2 class="product-title"><a href="{{product_link}}"> {{name}} </a></h2>
+            <ul class="product-description">
+              <div class="row">
+                <div class="col s6">
+                  <li><span>Brand: </span>{{brand}}</li>
+                </div>
+                <div class="col s6">
+                  <p class="product-price right-align">{{price}} {{price_sign}}</p>
+                </div>
+              </div>
+            </ul>
+            <div class="col s6 center-align">
+              <button class="waves-effect waves-light btn buy grey darken-4">Buy Now!</button>
+            </div>
+
+            <div class="col s6 center-align">
+              <button class="waves-effect waves-light btn cart grey darken-4" data-id="{{id}}" data-name="{{name}}" onclick='addToCart()'>Add to cart</button>
+            </div>
+            <div class="highlight"></div>
+            </li>
+            {{/each}}
+          </script>
+        </ul>
+      </div>
+
+    <!-- Single Details -->
+    <div class="single-product page">
+
+
+      <!-- Tipos de productos -->
+      <script id="productsbytype-template" type="x-handlebars-template">
+        <div class="products by type">
+        <h3>{{product_type}}</h3>
+        <ul class="products-by-type row">
+        {{#each this}}
+
+        <li data-index="{{id}}"class="col s12 m4 center-align item-container">
+          <a href="#" class="product-photo"><img src="{{image_link}}" class="responsive-img" alt="{{name}}"></a>
+          <h2 class="product-title"><a href="#">{{name}}</a></h2>
           <ul class="product-description">
           <div class="row">
           <div class="col s6">
