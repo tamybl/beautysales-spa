@@ -1,3 +1,4 @@
+let car = 0;
 $(function() {
     $('.slider').slider();
   /* checkboxes.click(function () {
@@ -166,12 +167,11 @@ function addToCart() {
 }*/
 
     $('.cart').click(function(e){
+      car++;
       const jsonCart = {};
       jsonCart.products = [];
       let id = $(this).attr('data-id');
       let name = $(this).attr('data-name');
-
-
       jsonCart.products.push({id: id,name:name});
       localStorage.setItem("jsonCart", JSON.stringify(jsonCart));
       let db = localStorage.getItem("jsonCart");
