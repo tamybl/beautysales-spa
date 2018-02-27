@@ -1,4 +1,5 @@
 let car = 0;
+
 $(function() {
     $('.slider').slider();
   // Se obtiene la data completa de los elementos contenidos en el archivo json
@@ -11,6 +12,12 @@ $(function() {
   $(window).on('hashchange', function() {
     render(decodeURI(window.location.hash));
   });
+
+
+  function render(url) {
+  // This function decides what type of page to show
+  // depending on the current url hash value.
+  }
 
   $('.tab a').click(showByType);
 });
@@ -39,7 +46,6 @@ function showByType() {
 
 
 function generateProductsHTML(data) {
-    console.log(data)
     let list = $('.all-products .products-list');
     const theTemplateScript = $('#products-template').html();
     var theTemplate = Handlebars.compile(theTemplateScript);
@@ -48,9 +54,15 @@ function generateProductsHTML(data) {
     for (let i = 0; i <= 20; i++) {
       resultsPerPage.push(data[i]);
     }
-    list.append(theTemplate(data));
+    list.append(theTemplate(resultsPerPage));
+    
+    list.find('li').on('click', function(e) {
+      e.preventDefault();
+      var productIndex = $(this).data('index');
+      window.location.hash = 'product/' + productIndex;
+        })
 
-        generateAllProductsHTML(data);
+
         
         $(window).trigger('hashchange');
     }
@@ -62,33 +74,6 @@ function generateProductsHTML(data) {
         function render(url) {
     }
 
-
-    function generateAllProductsHTML(data) {
-        const list = $('.all-products .products-list');
-        const theTemplateScript = $('#products-template').html();
-        var theTemplate = Handlebars.compile(theTemplateScript);
-        const limit = 20;
-        let resultsPerPage = [];
-        for (let i = 0; i <= 20; i++) {
-            resultsPerPage.push(data[i]);
-        }
-        list.append(theTemplate(resultsPerPage));
-        list.find('li').on('click', function(e) {
-            e.preventDefault();
-            var productIndex = $(this).data('index');
-            window.location.hash = 'product/' + productIndex;
-        })
-    }
-
-function printProducts(response) {
-    console.log('Imprimiendo en html');
-    list = $('.all-products');
-    list.empty();
-    theTemplateScript = $('#productsbytype-template').html();
-    let productsByTypeTemplateScript = $('#productsbytype-template').html();
-    var productByTypeTemplate = Handlebars.compile(productsByTypeTemplateScript);
-    list.append(productByTypeTemplate(response));
-}
 
 var shop = $('#shop');
 
@@ -109,3 +94,16 @@ function addToCart() {
       localStorage.setItem("jsonCart", JSON.stringify(jsonCart));
       let db = localStorage.getItem("jsonCart");
     });
+
+function productsPerPage (data, min, max) {
+  // Array que se despliega
+    let results = [];
+    for (let i = min; i <= max; i++) {
+      if(data[i] != undefined) {
+        results.push(data[i]);
+      }
+      
+    }
+    return results;
+}
+

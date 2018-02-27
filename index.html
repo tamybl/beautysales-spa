@@ -129,63 +129,9 @@
         </ul>
       </div>
 
+    
     <!-- Single Details -->
-    <div class="single-product page">
-
-
-      <!-- Tipos de productos -->
-      <script id="productsbytype-template" type="x-handlebars-template">
-        <div class="products by type">
-        <h3>{{product_type}}</h3>
-        <ul class="products-by-type row">
-        {{#each this}}
-
-        <li data-index="{{id}}"class="col s12 m4 center-align item-container">
-          <a href="#" class="product-photo"><img src="{{image_link}}" class="responsive-img" alt="{{name}}"></a>
-          <h2 class="product-title"><a href="#">{{name}}</a></h2>
-          <ul class="product-description">
-          <div class="row">
-          <div class="col s6">
-          <li><span>Brand: </span>{{brand}}</li>
-          </div>
-          <div class="col s6">
-          <p class="product-price right-align">{{price}} {{price_sign}}</p>
-          </div>
-          </div>
-          </ul>
-          <div class="col s6 center-align">
-          <button class="waves-effect waves-light btn buy grey darken-4">Buy Now!</button>
-          </div>
-          <div class="col s6 center-align">
-          <button class="waves-effect waves-light btn cart" data-id="{{id}}" data-name="{{name}}" onclick='addToCart()'>Add to cart</button>
-          </div>
-          <div class="highlight"></div>
-          </li>
-          {{/each}}
-        </script>
-      </ul>
-    </div>
-    <!-- Single Details -->
-    <div class="single-product page">
-      <!-- Tipos de productos -->
-      <script id="productsbytype-template" type="x-handlebars-template">
-      <div class="products by type">
-      <h3>{{product_type}}</h3>
-      <ul class="products-by-type row">
-      {{#each this}}
-      <li data-index="{{id}}"class="col s12 m4 center-align item-container">
-      <a href="#" class="product-photo"><img src="{{image_link}}" class="responsive-img" alt="{{name}}"></a>
-      <h2 class="product-title"><a href="#">{{name}}</a></h2>
-      <ul class="product-description">
-      <li><span>Brand:</span>{{brand}}</li>
-      <li><span>Price:</span>{{price_sign}}{{price}}</li>
-      </ul>
-      <button class="waves-effect waves-light btn buy grey darken-4">Buy Now!</button>
-      </li>
-      {{/each}}
-      </ul>
-      </div>
-      </script>
+    <div class="single-product page"></div>
   </main>
   <footer class="page-footer grey darken-4">
     <div class="container">
@@ -210,6 +156,7 @@
         </div>
       </div>
     </div>
+
     <div class="footer-copyright">
       <div class="container">
         2018 © PINT
@@ -220,6 +167,22 @@
   <script type="text/javascript">
     (function () { function $MPC_load() { window.$MPC_loaded !== true && (function () { var s = document.createElement("script"); s.type = "text/javascript"; s.async = true; s.src = document.location.protocol + "//secure.mlstatic.com/mptools/render.js"; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); window.$MPC_loaded = true; })(); } window.$MPC_loaded !== true ? (window.attachEvent ? window.attachEvent('onload', $MPC_load) : window.addEventListener('load', $MPC_load, false)) : null; })();
   </script>
+
+
+    <ul class="pagination" id="myPager"></ul>
+       <ul class="pagination">
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="active"><a href="#!">1</a></li>
+    <li class="waves-effect"><a href="#!">2</a></li>
+    <li class="waves-effect"><a href="#!">3</a></li>
+    <li class="waves-effect"><a href="#!">4</a></li>
+    <li class="waves-effect"><a href="#!">5</a></li>
+    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+      
+
+  </main>
+
   <script src="assets/js/jquery-3.3.1.min.js"></script>
   <script src="assets/js/handlebars-v4.0.11.js"></script>
   <script src="assets/js/materialize.min.js"></script>
