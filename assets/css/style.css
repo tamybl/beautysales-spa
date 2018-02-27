@@ -9,6 +9,7 @@ nav {
 }
 
 body {
+  font-family: 'Lato', sans-serif;
   background-image: url(../images/bg_makeup50.png);
   background-repeat: repeat;
 }
@@ -71,4 +72,23 @@ body {
   font-size: 20px;
   color: #F06E73;
   font-weight: bold; 
+}
+
+.brand {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.buy a{
+  color: #EE6E73;
+}
+
+.cart {
+  padding: 0 15px;
+  font-size: 15px;
 }

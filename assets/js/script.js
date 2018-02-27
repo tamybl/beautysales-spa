@@ -42,6 +42,9 @@ function showByType() {
       // si el llamado falla, lanza un console.log
       console.log('error');
     });
+      var link = 'https://www.mercadopago.com/mlc/checkout/pay?pref_id=176718880-409c9cc0-88b0-4ad2-8b9f-2f7943581965';
+    $('.mercado').html('<a mp-mode="dftl" href='+ link +' name="MP-payButton" class="blue-ar-l-rn-none mercado">Buy now!</a>');
+
 }
 
 
