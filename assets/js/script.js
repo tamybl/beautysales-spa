@@ -1,9 +1,5 @@
-$(document).ready(function() {
-  $('.slider').slider();
-});
-
-
 $(function() {
+    $('.slider').slider();
   /* checkboxes.click(function () {
   // The checkboxes in our app serve the purpose of filters.
   // Here on every click we add or remove filtering criteria from a filters object.
@@ -11,15 +7,10 @@ $(function() {
   // Then we call this function which writes the filtering criteria in the url hash.
   createQueryHash(filters);
   }); */
-
+  // Se obtiene la data completa de los elementos contenidos en el archivo json
   $.getJSON('https://raw.githubusercontent.com/tamybl/beautysales-spa/master/products.json', function(data) {
-    // Get data about our products from products.json.
-
-    // Call a function that will turn that data into HTML.
-    // console.log(data);
-
-    generateAllProductsHTML(data);
-    // generateAllCategoriesHTML(data);
+    // Funcion que imprime los datos contenido en data en el HTML
+    generateProductsHTML(data);
     // Manually trigger a hashchange to start the app.
     $(window).trigger('hashchange');
   });
@@ -35,9 +26,50 @@ $(function() {
   // depending on the current url hash value.
   }
 
-  function generateAllProductsHTML(data) {
-    const list = $('.all-products .products-list');
 
+  $('.tab a').click(showByType);
+
+  $('.cart').click(function(e){
+    e.preventDefault();
+    console.log('hola');
+    let id = $(this).attr('data-id');
+    let name = $(this).attr('data-name');
+    var product = {id: id,name:name};
+    localStorage.setItem('add_product', JSON.stringify(product));
+    console.log(localStorage);
+
+  })
+});
+
+function showByType() {
+  var typeSelected = $(this);
+  var typeName = typeSelected.attr('id');
+  window.location.hash = 'product/' + typeName;
+  // console.log(typeName);
+  console.log(typeName);
+  $('.all-products .products-list').find('li').remove();
+
+  $.ajax({
+    url: `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=${typeName}`,
+    type: 'GET',
+    datatype: 'json'
+  })
+    .done(function(response) {
+      // si el llamado fue exitoso, llama a showProductsByType
+      //console.log(response);
+      generateProductsHTML(response);
+
+    })
+    .fail(function(error) {
+      // si el llamado falla, lanza un console.log
+      console.log('error');
+    });
+}
+
+
+function generateProductsHTML(data) {
+    console.log(data)
+    let list = $('.all-products .products-list');
     const theTemplateScript = $('#products-template').html();
     // Compile the template​
     var theTemplate = Handlebars.compile(theTemplateScript);
@@ -47,7 +79,7 @@ $(function() {
       resultsPerPage.push(data[i]);
     }
     console.log(resultsPerPage);
-    list.append(theTemplate(resultsPerPage));
+    list.append(theTemplate(data));
 
     // Each products has a data-index attribute.
     // On click change the url hash to open up a preview for this product only.
@@ -62,49 +94,7 @@ $(function() {
   }
 
 
-  $('.tab a').click(showByType);
-});
-
-function showByType() {
-  var typeSelected = $(this);
-  var typeName = typeSelected.attr('id');
-  window.location.hash = 'product/' + typeName;
-  // console.log(typeName);
-
-  $.ajax({
-    url: `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=${typeName}`,
-    type: 'GET',
-    datatype: 'json'
-  })
-    .done(function(response) {
-      // si el llamado fue exitoso, llama a showProductsByType
-      // console.log(response);
-      printProducts(response);
-    })
-    .fail(function(error) {
-      // si el llamado falla, lanza un console.log
-      console.log('error');
-    });
-}
-
-function printProducts(response) {
-  // console.log('Imprimiendo en html');
-  list = $('.all-products .products-list');
-  list.empty();
-  theTemplateScript = $('#productsbytype-template').html();
-
-  let productsByTypeTemplateScript = $('#productsbytype-template').html();
-  var productByTypeTemplate = Handlebars.compile(productsByTypeTemplateScript);
-  list.append(productByTypeTemplate(response));
-}
 
 function pagination() {
   
 }
-
-var cart = $('.cart');
-var buy = $('.buy');
-
-$(cart).click(function() {
-  
-})

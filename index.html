@@ -44,11 +44,6 @@
   </div>
   <div class="nav-content">
     <ul class="tabs categories page center-align grey darken-4">
-      <script id="categories-template" type="text/x-handlebars-template">
-        {{#each this}}
-        <li class="tab"><a class="waves-effect waves-light btn col s2" id="{{name}}">{{name}}</a></li>
-        {{/each}}
-      </script>
       <!-- Categories Here -->
       <li class="tab"><a id="blush">Blush</a></li>
       <li class="tab"><a id="bronzer">Bronzer</a></li>
@@ -68,7 +63,7 @@
         <script id="products-template" type="x-handlebars-template">
           {{#each this}}
           <li data-index="{{id}}" class="col s12 m4 item-container">
-            <a href="#" class="product-photo"><img src="{{image_link}}" class="responsive-img" alt="{{name}}"/></a>
+            <a href="#" class="product-photo center-align"><img src="{{image_link}}" class="responsive-img" alt="{{name}}"/></a>
             <h2 class="product-title"><a href="{{product_link}}"> {{name}} </a></h2>
             <ul class="product-description">
               <div class="row">
@@ -85,7 +80,7 @@
             </div>
 
             <div class="col s6 center-align">
-              <button class="waves-effect waves-light btn cart grey darken-4">Add to cart</button>
+              <button class="waves-effect waves-light btn cart" data-id="{{id}}" data-name="{{name}}">Add to cart</button>
             </div>
             <div class="highlight"></div>
             </li>
@@ -98,6 +93,9 @@
          <a mp-mode="dftl" href="https://www.mercadopago.com/mlc/checkout/pay?pref_id=176718880-409c9cc0-88b0-4ad2-8b9f-2f7943581965" name="MP-payButton" class='blue-ar-l-rn-none'>Pagar</a>
      </div>
 
+
+    <!-- Single Details -->
+    <div class="single-product page">
 
 
       <!-- Tipos de productos -->
@@ -120,35 +118,6 @@
         </ul>
         </div>
       </script>
-
-      <!-- Single Details 
-      <div class="single-product page">
-
-        <div class="overlay"></div>
-
-        <div class="preview-large">
-          <h3>Single product view</h3>
-          <img src=""/>
-          <p></p>
-
-          <span class="close">&times;</span>
-        </div> 
-
-      </div> -->
-      <!-- Error Page 
-      <div class="error page">
-        <h3>Sorry, something went wrong :(</h3>
-      </div>
-
-      <div class="pagination">
-        <ul>
-          <script id="pagination-template" type="x-handlebars-template">
-            {{ each this}}
-            <li data-page="{{@index}}"><a href="#">{{@index}}</a></li>
-          </script>
-        </ul>
-
-      </div> -->
 
     </main>
     <footer class="page-footer grey darken-4">
