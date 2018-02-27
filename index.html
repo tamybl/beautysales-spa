@@ -9,15 +9,17 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#!" class="brand-logo center"><img class="logo" src="assets/images/logosolo.png" alt=""></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href=""><i class="fas fa-shopping-cart"></i> Cart(0)</a></li>
-        <li><a href=""><i class="fas fa-user"></i> My Account</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div class="navbar-fixed">
+      <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo center"><img class="logo" src="assets/images/logosolo.png" alt=""></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a id="shop" href=""><i class="fas fa-shopping-cart"></i> Cart (0)</a></li>
+          <li><a href=""><i class="fas fa-user"></i> My Account</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 
   <div class="slider">
     <ul class="slides">
@@ -84,11 +86,11 @@
               </div>
             </ul>
             <div class="col s6 center-align">
-              <button class="waves-effect waves-light btn buy">Buy Now!</button>
+              <button class="waves-effect waves-light btn " id='buy' >Buy Now!</button>
             </div>
 
             <div class="col s6 center-align">
-              <button class="waves-effect waves-light btn cart">Add to cart</button>
+              <button class="waves-effect waves-light btn " id='cart' onclick='addToCart()'>Add to cart (0)</button>
             </div>
             <div class="highlight"></div>
             </li>
