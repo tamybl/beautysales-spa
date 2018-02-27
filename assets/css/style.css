@@ -33,12 +33,14 @@ body {
 
 .slider {
   font-family: 'Amatic SC', cursive;
+  background-color: black;
 }
 
 .slider h3 {
   color: black;
   background-color: #FADEC8;
   border-radius: 5px;
+  line-height: 70px;
   display: inline;
   padding: 5px;
 }
