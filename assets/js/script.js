@@ -46,26 +46,24 @@ function showByType() {
 
 
 function generateProductsHTML(data) {
-    let list = $('.all-products .products-list');
-    const theTemplateScript = $('#products-template').html();
-    var theTemplate = Handlebars.compile(theTemplateScript);
-    const limit = 20;
-    let resultsPerPage = [];
-    for (let i = 0; i <= 20; i++) {
-      resultsPerPage.push(data[i]);
-    }
-    list.append(theTemplate(resultsPerPage));
-    
-    list.find('li').on('click', function(e) {
-      e.preventDefault();
-      var productIndex = $(this).data('index');
-      window.location.hash = 'product/' + productIndex;
-        })
+  let list = $('.all-products .products-list');
+  const theTemplateScript = $('#products-template').html();
+  var theTemplate = Handlebars.compile(theTemplateScript);
+  const limit = 20;
+  let resultsPerPage = [];
+  for (let i = 0; i <= 20; i++) {
+  resultsPerPage.push(data[i]);
+  }
+  list.append(theTemplate(resultsPerPage));
+  
+  list.find('li').on('click', function(e) {
+    e.preventDefault();
+    var productIndex = $(this).data('index');
+    window.location.hash = 'product/' + productIndex;
+  })
 
-
-        
-        $(window).trigger('hashchange');
-    }
+  $(window).trigger('hashchange');
+}
 
     $(window).on('hashchange', function() {
         render(decodeURI(window.location.hash));
