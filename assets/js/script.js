@@ -80,7 +80,7 @@ function generateProductsHTML(data) {
         // generateAllCategoriesHTML(data);
         // Manually trigger a hashchange to start the app.
         $(window).trigger('hashchange');
-    });
+    }
 
     $(window).on('hashchange', function() {
         // On every hash change the render function is called with the new hash.
@@ -116,12 +116,12 @@ function generateProductsHTML(data) {
             var productIndex = $(this).data('index');
 
             window.location.hash = 'product/' + productIndex;
-        });
+        })
     }
 
 
     $('.tab a').click(showByType);
-});
+
 
 function showByType() {
     var typeSelected = $(this);
@@ -155,16 +155,15 @@ function printProducts(response) {
     list.append(productByTypeTemplate(response));
 }
 
-/*var shop = $('#shop');
+var shop = $('#shop');
 
 $(shop).click(addToCart);
-
+var counter = 0;
 function addToCart() {
-    var counter = 0;
-    counter = counter+1;
     $(shop).html('<i class="fas fa-shopping-cart"></i> Cart (' + ( counter ) + ')');
+    counter++;
     console.log(counter);
-}*/
+}
 
     $('.cart').click(function(e){
       car++;
@@ -177,5 +176,4 @@ function addToCart() {
       let db = localStorage.getItem("jsonCart");
       console.log(localStorage.jsonCart);
 
-    })
-  }
+    });
