@@ -18,39 +18,40 @@
       </ul>
     </div>
   </nav>
-    <div class="slider">
-      <ul class="slides">
-        <li>
-          <img src="assets/images/slider/cruelty-free-makeup.jpg"> <!-- random image -->
-          <div class="caption center-align">
-            <h3>This is our big Tagline!</h3>
-            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-          </div>
-        </li>
-        <li>
-          <img src="assets/images/slider/women-love-makeup.jpg"> <!-- random image -->
-          <div class="caption left-align">
-            <h3>Left Aligned Caption</h3>
-            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-          </div>
-        </li>
-        <li>
-          <img src="assets/images/slider/women-natural-make-up.jpg"> <!-- random image -->
-          <div class="caption right-align">
-            <h3>Right Aligned Caption</h3>
-            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="nav-content">
-      <ul class="tabs categories page center-align">
-        <script id="categories-template" type="text/x-handlebars-template">
+
+  <div class="slider">
+    <ul class="slides">
+      <li>
+        <img src="assets/images/slider/cruelty-free-makeup.jpg"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="assets/images/slider/women-love-makeup.jpg"> <!-- random image -->
+        <div class="caption left-align">
+          <h3>Left Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="assets/images/slider/women-natural-make-up.jpg"> <!-- random image -->
+        <div class="caption right-align">
+          <h3>Right Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="nav-content">
+    <ul class="tabs categories page center-align">
+      <script id="categories-template" type="text/x-handlebars-template">
         {{#each this}}
         <li class="tab"><a class="waves-effect waves-light btn col s2" id="{{name}}">{{name}}</a></li>
-          {{/each}}
+        {{/each}}
       </script>
-    <!-- Categories Here -->
+      <!-- Categories Here -->
       <li class="tab"><a id="blush">Blush</a></li>
       <li class="tab"><a id="bronzer">Bronzer</a></li>
       <li class="tab"><a id="eyebrow">Eyebrow</a></li>
@@ -61,13 +62,13 @@
       <li class="tab"><a id="lipstick">Lipstick</a></li>
       <li class="tab"><a id="mascara">Mascara</a></li>
       <li class="tab"><a id="nail_polish">Nail polish</a></li>
-      </ul>
-    </div>
+    </ul>
+  </div>
   <main class="main-content">
     <div class="all-products page">
       <h3 class="center-align">Our Products</h3>
-        <ul class="products-list row">
-        <script id="products-template" type="x-handlebars-template">​
+      <ul class="products-list row">
+        <script id="products-template" type="x-handlebars-template">
           {{#each this}}
           <li data-index="{{id}}" class="col s12 m4 item-container">
             <a href="#" class="product-photo"><img src="{{image_link}}" class="responsive-img" alt="{{name}}"/></a>
@@ -85,22 +86,30 @@
             <div class="col s6 center-align">
               <button class="waves-effect waves-light btn">Buy Now!</button>
             </div>
+
             <div class="col s6 center-align">
-              <button class="waves-effect waves-light btn">Add to cart</button>
+            <button class="waves-effect waves-light btn">Add to cart</button>
             </div>
             <div class="highlight"></div>
-          </li>
-        {{/each}}
-      </script>
-      </ul>
-    </div>
+            </li>
+            {{/each}}
+          </script>
+        </ul>
+      </div>
 
-<!-- Tipos de productos -->
-    <script id="productsbytype-template" type="x-handlebars-template">
-      <div class="products by type">
-      <h3>{{product_type}}</h3>
-      <ul class="products-by-type row">
+      <div class="shopping-cart">
+         <a mp-mode="dftl" href="https://www.mercadopago.com/mlc/checkout/pay?pref_id=176718880-409c9cc0-88b0-4ad2-8b9f-2f7943581965" name="MP-payButton" class='blue-ar-l-rn-none'>Pagar</a>
+     </div>
+
+
+
+      <!-- Tipos de productos -->
+      <script id="productsbytype-template" type="x-handlebars-template">
+        <div class="products by type">
+        <h3>{{product_type}}</h3>
+        <ul class="products-by-type row">
         {{#each this}}
+
         <li data-index="{{id}}"class="col s12 m4 center-align item-container">
           <a href="#" class="product-photo"><img src="{{image_link}}" class="responsive-img" alt="{{name}}"></a>
           <h2 class="product-title"><a href="#">{{name}}</a></h2>
@@ -111,48 +120,49 @@
           <button>Buy now!</button>
         </li>
         {{/each}}
-      </ul>
-      </div>
-    </script>
+        </ul>
+        </div>
+      </script>
 
-    <!-- Single Details -->
-    <div class="single-product page">
+      <!-- Single Details -->
+      <div class="single-product page">
 
         <div class="overlay"></div>
 
         <div class="preview-large">
-            <h3>Single product view</h3>
-            <img src=""/>
-            <p></p>
+          <h3>Single product view</h3>
+          <img src=""/>
+          <p></p>
 
-            <span class="close">&times;</span>
+          <span class="close">&times;</span>
         </div>
 
-    </div>
-    <!-- Error Page -->
-    <div class="error page">
+      </div>
+      <!-- Error Page -->
+      <div class="error page">
         <h3>Sorry, something went wrong :(</h3>
-    </div>
+      </div>
 
-    <div class="pagination">
-      <ul>
-        <script id="pagination-template" type="x-handlebars-template">
-        {{ each this}}
-        <li data-page="{{@index}}"><a href="#">{{@index}}</a></li>
+      <div class="pagination">
+        <ul>
+          <script id="pagination-template" type="x-handlebars-template">
+            {{ each this}}
+            <li data-page="{{@index}}"><a href="#">{{@index}}</a></li>
+          </script>
+        </ul>
+
+      </div>
+
+    </main>
+
+    <script type="text/javascript">
+        (function(){function $MPC_load(){window.$MPC_loaded !== true && (function(){var s = document.createElement("script");s.type = "text/javascript";s.async = true;s.src = document.location.protocol+"//secure.mlstatic.com/mptools/render.js";var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);window.$MPC_loaded = true;})();}window.$MPC_loaded !== true ? (window.attachEvent ?window.attachEvent('onload', $MPC_load) : window.addEventListener('load', $MPC_load, false)) : null;})();
       </script>
-      </ul>
-      
-    </div>
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/handlebars-v4.0.11.js"></script>
+    <script src="assets/js/materialize.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="assets/js/script.js"></script>
 
-  </main>
-
-
-  
-  <script src="assets/js/jquery-3.3.1.min.js"></script>
-  <script src="assets/js/handlebars-v4.0.11.js"></script>
-  <script src="assets/js/materialize.min.js"></script>
-  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-  <script src="assets/js/script.js"></script>
-  
-</body>
-</html>
+  </body>
+  </html>
