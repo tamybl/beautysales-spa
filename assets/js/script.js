@@ -29,16 +29,7 @@ $(function() {
 
   $('.tab a').click(showByType);
 
-  $('.cart').click(function(e){
-    e.preventDefault();
-    console.log('hola');
-    let id = $(this).attr('data-id');
-    let name = $(this).attr('data-name');
-    var product = {id: id,name:name};
-    localStorage.setItem('add_product', JSON.stringify(product));
-    console.log(localStorage);
-
-  })
+  
 });
 
 function showByType() {
@@ -91,6 +82,20 @@ function generateProductsHTML(data) {
 
       window.location.hash = 'product/' + productIndex;
     });
+
+    $('.cart').click(function(e){
+      const jsonCart = {};
+      jsonCart.products = [];
+      let id = $(this).attr('data-id');
+      let name = $(this).attr('data-name');
+
+
+      jsonCart.products.push({id: id,name:name});
+      localStorage.setItem("jsonCart", JSON.stringify(jsonCart));
+      let db = localStorage.getItem("jsonCart");
+      console.log(localStorage.jsonCart);
+
+    })
   }
 
 
