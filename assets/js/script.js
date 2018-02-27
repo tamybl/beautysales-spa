@@ -68,7 +68,8 @@ $(function() {
 function showByType() {
   var typeSelected = $(this);
   var typeName = typeSelected.attr('id');
-  console.log(typeName);
+  window.location.hash = 'product/' + typeName;
+  // console.log(typeName);
 
   $.ajax({
     url: `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=${typeName}`,
@@ -77,7 +78,7 @@ function showByType() {
   })
     .done(function(response) {
       // si el llamado fue exitoso, llama a showProductsByType
-      console.log(response);
+      // console.log(response);
       printProducts(response);
     })
     .fail(function(error) {
@@ -87,8 +88,8 @@ function showByType() {
 }
 
 function printProducts(response) {
-  console.log('Imprimiendo en html');
-  list = $('.all-products');
+  // console.log('Imprimiendo en html');
+  list = $('.all-products .products-list');
   list.empty();
   theTemplateScript = $('#productsbytype-template').html();
 
@@ -97,13 +98,13 @@ function printProducts(response) {
   list.append(productByTypeTemplate(response));
 }
 
-function pagination () {
+function pagination() {
   
 }
 
 var cart = $('.cart');
 var buy = $('.buy');
 
-$(cart).click(function(){
+$(cart).click(function() {
   
 })

@@ -10,7 +10,7 @@
 </head>
 <body>
   <nav>
-    <div class="nav-wrapper">
+    <div class="nav-wrapper grey darken-4">
       <a href="#!" class="brand-logo center"><img class="logo" src="assets/images/logosolo.png" alt=""></a>
       <ul class="right hide-on-med-and-down">
         <li><a href=""><i class="fas fa-shopping-cart"></i> Cart(0)</a></li>
@@ -22,30 +22,28 @@
   <div class="slider">
     <ul class="slides">
       <li>
-        <img src="assets/images/slider/cruelty-free-makeup.jpg"> <!-- random image -->
+        <img src="assets/images/slider/women-love-makeup.jpg"> <!-- random image -->
         <div class="caption center-align">
-          <h3>This is our big Tagline!</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+          <h3>Welcome to PINT Store</h3>
         </div>
       </li>
       <li>
-        <img src="assets/images/slider/women-love-makeup.jpg"> <!-- random image -->
+        <img src="assets/images/slider/cruelty-free-makeup.jpg"> <!-- random image -->
         <div class="caption left-align">
-          <h3>Left Aligned Caption</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+          <h3>Browse our tags</h3>
         </div>
       </li>
       <li>
         <img src="assets/images/slider/women-natural-make-up.jpg"> <!-- random image -->
         <div class="caption right-align">
-          <h3>Right Aligned Caption</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+          <h3>Try our products</h3>
+          <h5 class="light grey-text text-lighten-3">We care about ur skin</h5>
         </div>
       </li>
     </ul>
   </div>
   <div class="nav-content">
-    <ul class="tabs categories page center-align">
+    <ul class="tabs categories page center-align grey darken-4">
       <script id="categories-template" type="text/x-handlebars-template">
         {{#each this}}
         <li class="tab"><a class="waves-effect waves-light btn col s2" id="{{name}}">{{name}}</a></li>
@@ -66,7 +64,6 @@
   </div>
   <main class="main-content">
     <div class="all-products page">
-      <h3 class="center-align">Our Products</h3>
       <ul class="products-list row">
         <script id="products-template" type="x-handlebars-template">
           {{#each this}}
@@ -84,11 +81,11 @@
               </div>
             </ul>
             <div class="col s6 center-align">
-              <button class="waves-effect waves-light btn buy">Buy Now!</button>
+              <button class="waves-effect waves-light btn buy grey darken-4">Buy Now!</button>
             </div>
 
             <div class="col s6 center-align">
-              <button class="waves-effect waves-light btn cart">Add to cart</button>
+              <button class="waves-effect waves-light btn cart grey darken-4">Add to cart</button>
             </div>
             <div class="highlight"></div>
             </li>
@@ -117,14 +114,14 @@
             <li><span>Brand:</span>{{brand}}</li>
           <li><span>Price:</span>{{price_sign}}{{price}}</li>
           </ul>
-          <button>Buy now!</button>
+          <button class="waves-effect waves-light btn buy grey darken-4">Buy Now!</button>
         </li>
         {{/each}}
         </ul>
         </div>
       </script>
 
-      <!-- Single Details -->
+      <!-- Single Details 
       <div class="single-product page">
 
         <div class="overlay"></div>
@@ -135,10 +132,10 @@
           <p></p>
 
           <span class="close">&times;</span>
-        </div>
+        </div> 
 
-      </div>
-      <!-- Error Page -->
+      </div> -->
+      <!-- Error Page 
       <div class="error page">
         <h3>Sorry, something went wrong :(</h3>
       </div>
@@ -151,10 +148,33 @@
           </script>
         </ul>
 
-      </div>
+      </div> -->
 
     </main>
-
+    <footer class="page-footer grey darken-4">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">PINT Store</h5>
+            <p class="grey-text text-lighten-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, eveniet necessitatibus cumque. Non, nulla, voluptates.</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Instagram</a></li>
+              <li><a class="grey-text text-lighten-3" href="#!">Youtube</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          2018 © PINT
+          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
+      </div>
+    </footer>
     <script type="text/javascript">
         (function(){function $MPC_load(){window.$MPC_loaded !== true && (function(){var s = document.createElement("script");s.type = "text/javascript";s.async = true;s.src = document.location.protocol+"//secure.mlstatic.com/mptools/render.js";var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);window.$MPC_loaded = true;})();}window.$MPC_loaded !== true ? (window.attachEvent ?window.attachEvent('onload', $MPC_load) : window.addEventListener('load', $MPC_load, false)) : null;})();
       </script>
