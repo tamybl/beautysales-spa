@@ -1,7 +1,5 @@
-let car = 0;
-
 $(function() {
-    $('.slider').slider();
+  $('.slider').slider();
   // Se obtiene la data completa de los elementos contenidos en el archivo json
   $.getJSON('https://raw.githubusercontent.com/tamybl/beautysales-spa/master/products.json', function(data) {
     // Funcion que imprime los datos contenido en data en el HTML
@@ -36,7 +34,6 @@ function showByType() {
     .done(function(response) {
       // si el llamado fue exitoso, llama a showProductsByType
       generateProductsHTML(response);
-
     })
     .fail(function(error) {
       // si el llamado falla, lanza un console.log
@@ -46,14 +43,7 @@ function showByType() {
 
 
 function generateProductsHTML(data) {
-  let list = $('.all-products .products-list');
-  const theTemplateScript = $('#products-template').html();
-  var theTemplate = Handlebars.compile(theTemplateScript);
-  const limit = 20;
-  let resultsPerPage = [];
-  for (let i = 0; i <= 20; i++) {
   resultsPerPage.push(data[i]);
-  }
   list.append(theTemplate(resultsPerPage));
   
   list.find('li').on('click', function(e) {
@@ -61,7 +51,6 @@ function generateProductsHTML(data) {
     var productIndex = $(this).data('index');
     window.location.hash = 'product/' + productIndex;
   })
-
   $(window).trigger('hashchange');
 }
 
@@ -72,14 +61,13 @@ function generateProductsHTML(data) {
         function render(url) {
     }
 
-
 var shop = $('#shop');
 
 $(shop).click(addToCart);
 var counter = 1;
 function addToCart() {
-    $(shop).html('<i class="fas fa-shopping-cart"></i> Cart (' + ( counter ) + ')');
-    counter++;
+  $(shop).html('<i class="fas fa-shopping-cart"></i> Cart (' + (counter) + ')');
+  counter++;
 }
 
     $('.cart').click(function(e){
@@ -104,4 +92,3 @@ function productsPerPage (data, min, max) {
     }
     return results;
 }
-
