@@ -11,7 +11,10 @@ nav {
 body {
   background-image: url(../images/bg_makeup50.png);
   background-repeat: repeat;
+}
 
+.tabs .tab a {
+  color: #FFF;
 }
 
 .main-content {
@@ -42,10 +45,6 @@ body {
   padding: 5px;
 }
 
-.tabs {
-  background-color: black;
-}
-
 .main-content {
   background-color: transparent;
 }
@@ -58,7 +57,6 @@ body {
 
 .item-container button {
   margin: 10px 0;
-  background-color: black;
   color: #F06E73;
   font-weight: bold;
 }
